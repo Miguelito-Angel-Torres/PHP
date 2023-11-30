@@ -1,0 +1,57 @@
+//Crea una carpeta , en donde git almacena su base de datos
+git init
+//va ver el estado del proyecto(Hay dos: trastreado,sin trastreado)
+git status
+// Mover al area de preparacion(Es la zona donde colocamos los archivos que van ser
+confirmado,archivos que presentara una version de nuestro proyecto):
+git add *
+//Mover al directorio de git:(Requiere un mensaje)
+git commit -m "(Nombre)"
+// Verificar que agregue o elimine
+git diff
+// Para que git ignore una carpeta
+se crea un archivo llamado: .gitignore , y colocamos el nombre de la carpeta que deseamos ignorar con un / al final
+y tambien se puede ignorar archivos especificos colocando su nombre en una linea nueva
+// ver el historial de git(Muestra el historial de commit ordenado de mas reciente al mas antiguo)
+git log  o git log --oneline , para ver todos los commit (git log  --all --oneline)
+// Viajamos en el tiempo al punto que hicimos el primer commit(o el commit que tu desees viajar):
+git checkout (Pasando el numero del commit que queremos saltar) , como viajar en el pasado y presente
+// Otra forma: git checkout main indicando que estamos en el presente y no podemos numero
+// Sacar archivos del area de preparacion: (Colocas el nombre archivo que quieras sacar del area)
+git reset HEAD  Boostrap1/recordarvacio.txt
+// Necesario Ramas: Una rama de git es un apuntador que se va moviendo con las confirmaciones
+de vayamanos haciendo, la rama por defecto se llama main y suele ser la rama principal
+//para ver la lista de ramas de mi repositorio y con un * en cual estoy ubicado
+git branch 
+main es un apuntador de un commit , es decir es una palabra que nos señala un commit ,el commit mas reciente de la
+rama main , un repositio puede tener multirama y no es necesario que la rama principal se llame main
+podemos tener varias ramas apuntando al mismo commit
+// creando una rama nueva  
+git branch  primerarama (nombre de la rama)
+//Para cambiar de rama:
+git checkout primerarama
+// Donde estas ocupado el commit va pertenecer a esa rama
+// para ver los commit general:
+git log --oneline --all --decorate --graph puedo verificar que commit tengo en cada rama
+// la rama no sabe el cambio de se hace en otras ramas, son dos universos distinto
+
+//Podemos elegir cualquier rama como principal,(Mezclar Ramas)Traer los cambios de otras ramas a la rama actual
+git merge (indicar la rama que queremos mezclar con la actual) y nos colocamos en la rama
+que queremos que se mezcle (Cualquier rama)
+// Cuando se hace la mezclar es normal que encontrarnos con conflictos(Dos ramas afecta
+la misma linea en el mismo archivo y podemos modificar para realizar la mezclar)
+// Para borrar una rama:
+git branch -d (el nombre de la rama)
+
+// Repositorio remoto con Github https://www.youtube.com/watch?v=JW32MrUQ5Wc&list=PLmUnyBCRHkvUPkrsseI1SmMtYgfc-f8Kn&index=8
+// Si no esta unido con el repositorio local
+git push origin master
+
+
+
+https://www.youtube.com/watch?v=w1DQIVIV09k
+//GitLab
+--git clone //Debemos primero clonar el repositorio. 
+-- git push origin master //Para subir proyecto a la rama principal
+--git pull origin master //Para descargar los cambios de los demas
+

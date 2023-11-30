@@ -1,0 +1,53 @@
+html{
+    background-color:#141414;
+    color: #fff;
+}
+.logo{ 
+    font-size:3rem;
+    color:#E50914;
+}
+
+input,textarea,select{color:#141414};
+
+table{
+    width:100%;
+    color:#141414;
+}
+table td, table th{ padding: .25em;}
+
+table tr:first-child{
+    background-color:#E50914;
+    color: #fff;
+}
+table tr:nth-child(even){ background-color: #666;}
+table tr:nth-child(odd):not(:first-child){ background-color: #999}
+
+.menu a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color:#E50914;
+}
+.menu a:hover{color:#fff};
+
+.button{
+    padding: .5rem 1rem;
+    background-color:#E50914;
+    color: #fff;
+    cursor: pointer
+}
+.button:hover{
+    opacity: .75;
+}
+.add {background-color: #0B0;}
+.edit{
+    background-color: #080808
+}
+.delete{background-color: #d23641;}
+.error{
+    background-color: #E50914;
+    color: #fff;
+}
+.img-404{
+    max-width: 140px;
+    height: auto;
+}

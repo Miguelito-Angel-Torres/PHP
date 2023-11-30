@@ -1,0 +1,228 @@
+Programacion Orientado Objeto tiene 4 elementos: Clases,Objetos,Metodos,Atributos
+--Clase: Es un modelo que se utiliza para crear objetos que comparten un mismo comportamiento
+--estado e identidad.(Como una lista de Instruccion).
+--Objeto: Es una entidad provista de: Metodos(comportamientos a los cuales responde) y
+Atributos con valores concretos(estados) y propiedades(identidad)
+--Metodo: Es el algoritmo asociado a un objeto que indica la capacidad de lo que este puede hacer(Acciones)
+--Atributos: Son variables que contienen datos asociados a un objeto(propiedades);
+--Clase es mi modelo ha seguir,de la clase yo puedo generar objeto ,los objetos tienen dos facultades:
+--metodos(Puede hacer cosas) y caracteristicas(Atributos).
+--Abstraccion:Aislacion de un elemento de su contexto.Define las caracteristicas esenciales de un objeto
+--Encapsulamiento:Reune al mismo nivel de abstraccion,a todos los elementos que puedan considerarse
+--pertenecientes a una misma entidad.
+--Modularidad:Caracteristica que permite dividir una aplicacion en varias partes mas pequeñas,
+--independientes unas de otras.
+--Ocultacion:Los objetos estan aislados del exterior,protegiendo a sus propiedades para no ser
+--modificadas por aquellos que no tengan derecho a acceder a la mismas.
+--Poliformismo:Es la capacidad que da a diferentes objetos, la posibilidad de contar con metodos y
+-- atributos de igual nombre,sin que los de un objeto interfieran con el de otro.
+--Herencia: Es la relacion existente entre dos o mas clases,donde una es la principal(madre)y otras
+--son secundarias y dependen(heredan) de ellas(clases hijas),donde a la vez,los objetos heredan
+--las caracteristicas de los objetos de los cuales dependen.
+--Recollecciond de Basura:Es la tecnica que consiste en destruir aquellos objetos cuando ya no son 
+--necesarios,liberandolos de la memoria.
+
+--Programacion de POO:
+-- Definicion de Clase:
+<?php
+class NombreDeMiClase{
+    var $un_atributo;
+    function un_metodo(){
+}}
+// Para usar una clase tengo que general un objeto:
+$objeto = new NombreDeMiClase();
+//Herencia
+--Los objetos pueden heredar propiedades y metodos de
+--otros,mediante la extension (herencia) de clases,cuya caracteristica
+-- representa la relacion existente entre diferentes objetos.Para
+--definir una clase como extencion de otra se utiliza la palabra clave extends
+--herencia singular(de una padre hereda a la clase hija,y la clase hija solamente hereda de la clase padre)
+<?php
+class NombreDeMiClaseMadre{
+    //
+}
+class NombreDeMiClaseHija extends NombreDeMiClaseMadre{
+    /* esta clase hereda todos los metodos y propiedades de la
+    clase madre NombreDeMiClaseMadre
+    */
+}
+//Clases Abstracta:Son aquellas que no necesitan ser instanciadas pero sin embargo,seran heredadas
+//en algun momento.Su finalidad,es la de declarar clases genericas que necesitan ser declaradas pero
+//a los cuales,no se puede otorgar una definicion precisa.Tambien se pueden declarar metodos abstractos.
+// Las clases astract nos van a servir a manera de modelo de otras clases, no se puede definir la programacion
+// de los metodos que tenga una clase astract y no se puede generar objeto ese tipo de clase
+<?php 
+abstract class NombreDeMiClaseAbstracta{
+    var $un_atributo_astracto;
+    function un_metodo_abstracto();
+}
+// Clases final:No pueden ser heredadas por otra.Se definen anteponiendo la palabra clave final:
+<?php 
+final class NombreDeMiClaseFinal{
+    var $un_atributo_final;
+    function un_metodo_final(){};
+}
+Clases declarar:
+Ser instanciada y/o heredadas : Instanciable
+Guardar relacion con metodos y atributos de otra : Heredada
+Servir de modelo para otras,sin que pueda instanciar :Astracta
+Instanciarse pero que no pueda ser heredada:Final
+
+//Modificadores de acceso y visiblidad
+Los metodos y atributos de una clase pueden tener deiferentes niveles de acceso,los cuales pueden ser:
+-Publicos -Privados -Protegidos -Estaticos
+-publicos:
+<?php
+class NombreDeMiClase{
+    public $un_atributo_publico;
+    public function un_metodo_publico(){}
+}
+-Privados:Esto solo pueden ser accedidos por la clase que lo definio,cuando instancio un objeto de este tipo de clase
+//desde el objeto no se va poder acceder a las caracteristicas private,para acceder una caracteristicas o metodo private
+// de un objeto, tendriamos dentro de la clase un metodo publico que este mande a llamar a su vez el recurso privado.
+// La clase herededa no puede acceder a los metodos y caracteristicas privados
+class NombreDeMiClase{
+    private $un_atributo_private;
+    private function un_metodo_private(){}
+}
+-Protected:Pueden ser accedidos por la propia clase que lo definio,asi como por las clases que la heredan,pero no,
+desde otras parte de la apliacion.
+class NombreDeMiClase{
+    protected $un_atributo_protected;
+    protected function un_metodo_protected(){}
+}
+-Static:Pueden ser accedidos sin necesidad de instanciar un objeto y su valor es estatico(es decir,no puede variar ni ser modificado).
+// Se puede invocar siempre cuando tenga acceso a la clase y sin necesidad de tener un objeto
+// Un atributo static piensar que como si fuera una const,un valor que no va poder cambiar dentro logica de nuestra programacion
+class NombreDeMiClase{
+    public static $un_atributo_estatico;
+    public static function un_metodo_estatico(){}
+}
+//Acceso de los Objetos:
+Dentro de la clase y no siendo estaticos
+--Utilizando la pseudo-variable $this,siendo esta una referencia al objeto mismo:
+class NombreDeMiClase{
+    $this->atributo;
+    $this->metodo();
+}
+Dentro de la clase y siendo estatico
+--Se accede mediante el operador de resolucion de ambito,(doble dos puntos ::) anteponiendo la palabra clave self o
+--parent segun se trate de una propiedad de la misma clase o de otra heredada
+-- self: palabra reservada,que seria que estamos dentro de la clase propia que tiene esos atributos.
+--parent: Si estamos llamando un recurso static desde una clase hija y el recurso forma parte de la clase padre se usa Parent
+class NombreDeMiClase{
+    self::atributo_estatico_de_esta_clase;
+    parent::atributo_estatico_de_clase_madre;
+
+    self::metodo_estatico_de_esta_clase();
+    parent::metodo_estatico_de_clase_madre();}
+
+Fuera de la clase y no siendo estatico:Se necesita instanciar un objeto de la clase y solo se pueden acceder metodos y atributos publicos
+$objeto = new Clase();
+$objeto->atributo_publico;
+$objeto->metodo_publico();
+Fuera de la clase y siendo estatico:No es necesario instanciar la clase.Solo se pueden acceder
+a metodos y atributos publicos
+Clase::atributos_publico;
+Clase::metodo_publico();
+
+//Constructor:Sera invocado de manera automatico,al instanciar un objeto.Su funcion es la de
+// ejecutar inicializacion que el objeto necesite antes de ser utilizado.
+//yo necesito ciertas rutinas o acciones de programacion se ejecute en ese momento,se puede hacer
+// mediante el constructor, cuando inicialize a un objeto de la clase .
+class NombreDeMiClase{
+    function __construc(){
+
+    }
+}
+
+//Destructor:Es el encargado de liberar de la memoria,al objeto cuando ya no es referenciado.
+//Se puede aprovechar este metodo, para realizar otras tareas que se estimen necesarias al 
+// momento de destruir un objeto.
+class NombreDeMiClase{
+    function __destructor(){
+
+    }
+}
+/* https://www.php.net/manual/es/language.oop5.magic.php */
+
+//Herencia Mutiple(Interfaces):Son un conjunto de metodos caracteristicos de diversas
+// independiente de la relacion que dichas clases mantengan entre si.
+// Una misma clase,puede implementar multiples interfaces.
+// Se definen utilizando la palabra clave interface y se
+//emplean utilizando la palabra clave implements.
+// Las interfaces no van a poder tener propiedades,unico tienen metodo pero solo la definicion de metodos 
+// y tiene que implementar todos los metodo que contiene la interface que vas heredar
+<?php
+interface InterfaceA{
+    public function un_metodo_publico();
+}
+interface InterfaceB{
+    public function otro_metodo_publico();
+}
+class NombreDeMiClase implements InterfaceA InterfaceB{
+    /*esta clase implementa todos los metodos de la Interfaces invocadas*/
+}
+
+--
+
+//Arquitectura de Software:(MODELO,VISTA,CONTROLADOR(Es un Patron))
+//Es la forma en la que se organizan los componentes de un sistema,interactuan y se
+// relacionan entre si y con su contexto.
+//Aplicando normas y principios de diseño y calidad,que fortalezcan y fomenten la usabilidad
+// a la vez que dejan preparada el sistema,para su propia evolucion.
+//Etapas:Requerimientos,Diseño,Documentacion,Evaluacion.
+-El modelo representa a la logica de negocio(manipulacion de datos) y persitencia de datos
+-Se encarga del acceso a los datos para realizar consultas,eliminaciones,inserciones,actualizaciones
+y almacenarlos en un medio persistente.
+-La vista representa la presentacion de los datos(diseño de paginas).
+-Se encargar de mostrar informacion al usuario(Interfaz de Usuario).
+-En la vista solo se deben de realizar operaciones simples,como condicionales,ciclos,etc.
+-intermediario:El controlador representa el codigo de navegacion de la aplicacion(control flujo)
+-Se encargar de controlador el fujo de la aplicacion.
+-Tiene la funcion de recibir y responder a los eventos(acciones de usuario).
+-Tiene que dirigir o asignar la parte de logica de negocios a cada peticion.
+-Debe tener un mecanismo para guardar las correspondencias entre peticion y respuesta que se les
+-asignan.
+
+
+
+
+
+
+
+
+/*Documentacion de Mysql :https://conclase.net/mysql/curso/cap11
+    https://conclase.net/mysql/curso/cap5*/
+
+// .htaccess:Dijamos que es un archivo que apache(servidor web),para dar
+//ciertos permisos sibre archivos,carpetas,etc que tengamos
+//adentro de nuestra aplicacion
+
+-- Manejo de rutas amigables dentro 
+-- de mi carpeta
+-- Options +followSymlinks: Que todo los links que vayan
+-- a tener url amigables que puedan funcionar decuardo a la 
+-- manera como se van a congigurar nuestra url amigales
+-- RewriteEngine On : Indica que se active todas las programacion
+--que voy a meter en el archivo htaccess.
+-- tengo que decirle cual es la base de mi aplicacion
+--dentro del servidor (RewriteBase) raiz del servidor web
+-- Son condicionales de htaccess para que algun carpeta
+-- Si existe archivo o directorio con la ruta que estoy formando en la url amigable
+--no va generar una ruta amigable con programacion,sino realmente va asceder al archivo o
+// a la carpeta que consultando
+-- RewriteCond %{SCRIPT_FILENAME} !-d
+-- RewriteCond %{SCRIPT_FILENAME} !-f
+-- Cambiar las variables que vamos estar pasando por la url y que nos devuelva
+-- un url amigable
+-- Rewrite ^(.*)-(.*)$   (.*)= indica que se va replazar por su primer variable [L] indica reemplazo el valor de la variable
+-- Ver que es Url Amigable Fijo
+--https://www.youtube.com/playlist?list=PLvq-jIkSeTUZWYh18UN6Q9rfkoqy5A9Xn
+
+
+--https://www.youtube.com/watch?v=txqZrMVe4_M&list=PLvq-jIkSeTUZEHvKw7Gx3g5CjlcvA3jr1&index=27
+
+
+
+https://www.youtube.com/watch?v=KiRA6gOqiDI&list=PLvq-jIkSeTUZEHvKw7Gx3g5CjlcvA3jr1&index=34

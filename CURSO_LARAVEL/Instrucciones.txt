@@ -1,0 +1,154 @@
+--Creacion de un dominio local para proyecto laravel : https://www.youtube.com/watch?v=HzygRlPmYQc&list=PLZ2ovOgdI-kWWS9aq8mfUDkJRfYib-SvF&index=7
+
+Instalador de Laravel usando Composer: composer global require laravel/installer
+Crear Proyecto: laravel new cursolaravel
+Comando para crear absolutamente todo : php artisan make:
+--Creacion de un Controlador por el cmd: php artisan make:controller HomeController
+-- Migracion: php artisan migprojerate 
+-- Crear una migracion(indica creacion de tabla) : php artisan make:migration cursos o php artisan make:migration create_cursos_table
+-- Opcion cuando colocar una columna y deseas actualizar (migrar) Va recorrer por cada tabla y va ejecutar 
+el metodo down php artisan y luego recorre el metodo up migrate:fresh (no recomendable si tiene valores) ejecuta el rollback y luego migrate
+--Proceso Contrario de la Migracion(revertir cambio pero en cuestion de lotes): php artisan migrate:rollback
+
+-- Modificar tabla (Agregar o eliminar columna)
+/ php artisan make:migration add_avatar_to_users_table es crear una migracion para la agregacion de una columna a una tabla
+
+/Para cambiar el tipo de valor de una columna se ejecuta el comando: composer require doctrine/dbal y de ahi
+creamos migracion : php artisan make:migration cambiar_propiedades_to_users_table
+
+//Eloquent Manejo de Modelo(Ingresar registro desde el Laravel a nuestra base de datos)
+//Insertar,Recuperar,Actualizar,Eliminar registro ORM vamos a tratar a cada uno de los registro como un objeto(propiedades)
+para eso necesitamos crear un modelo : Ejemplo modelo llamado Curso // cursos ,User//users Category//categorias
+-- php artisan make:model Curso
+
+//Usaremos Tinker para que haga referencia un formulario para usar todos los comando de Eloquent : php artisan tinker
+Ejem: use App\Models\Curso;
+use App\Models\Curso;
+$curso = new Curso();
+$curso->name = 'Laravel'
+$curso->description = "El mejor"
+$curso->save(); // Para guardar registro y actualizar si encuentra el id lo actualiza y sino lo encuentra lo registra
+
+// Los Seeders : Vamos a crear factories y lo vamos a ejeucutar desde otra estructura conocida como: Seeders (para registrar datos de prueba)
+indicar en el seeders se cree un registro solicitado : php artisan db:seed o realizar actividad php artisan migrate:fresh --seed o php artisan migrate --seed
+creacion de un archivo seeders para cada tabla para el registro solicitado : php artisan make:seeder CursoSeeder
+
+// Los Factory: Son lo que genera datos de pruebas , se encarga de llenar las base de datos con datos de prueba, que tenemos que hacer
+es indicable con que tipo de informacion quiero que se llene y indicarle la cantidad de registro con la que quiero que se llene.
+Crear factory php artisan make:factory CursoFactory o php artisan make:factory CursoFactory --model=Curso
+
+//Generadores de consulta eloquent: Usando Tinker. php artisan tinker recuperar todos los registros de esa
+tabla indicar que voy a utilizar el modelo que se encarga de administrar esa tabla
+use App\Models\Curso
+$cursos = Curso::all();
+$cursos = Curso::where('categoria','Diseño Web')->orderby('id','desc')->get(); //Para realizar un filtrado y imprimirlo con el metodo get();
+$cursos = Curso::where('categoria','Diseño Web')->orderby('name','asc')->first(); // Imprime el primer registro de la coleccion
+$cursos = Curso::select('name','descripcion')->where('categoria','Diseño Web')->take(5)->get(); //Obtener todos los registros por los campos indicados
+metodo take() le indico que me muestre la cantidad de registro que deseo
+$cursos = Curso::where('id',5)->first(); // Va devolver un objeto del id que deseo
+para entrar , como es un objeto $cursos->name;
+Metodo que nos faclita : $cursos = Curso::find(5); // Indica que va buscar y me va devolver el numero de id que coloco
+$cursos = Curso::where('id','<>',45)->get(); //
+$cursos = Curso::where('name','like','% voluptate %')->get(); //
+
+//Mutadores y Accesores: Estos mutadores se van a colocar dentro de los modelos
+(Creo que los mutadores son como condiciones para el valor de campo, indico como lo quiero colocar el valor)
+Transforma el valor antes de almacenarlo en la base de datos
+Prueba:
+use App\Models\User;
+$user = new User();
+$user->name = "VicTOr AraNA";
+$user->email = "vict@gmail,com";
+$user->password = bcrypt("123456");
+$user->save();
+-- EL efecto Contrario:
+Para eso usaremos el Accesores (Devolver el dato de la columna con el formato que yo deseo)
+lOS Accesores lo transforma cuando estamos haciendo una consulta a la base de datos
+use App\Models\User;
+$user1 = User::find(11);
+$user1->name //Verificando que el name me lo devuelva el formato de le solicite
+
+//Listar y leer registro,
+// Agregar y actualizar desde un formulario
+
+//Como validar formulario:
+
+s
+//Que son los Form Request(Solicitudes de Formulario) : php artisan make:request StoreCurso
+Las solicitudes de formulario son clases de solicitud personalizadas que contienen logica de
+validacion.(Es crear reglas  validaciones para el metodo "store" del controlador)
+
+// Asignacion masiva:
+
+//Eliminar un registro de la base de datos
+
+//Creacion de un procedimiento: php artisan make:migration storage_procedure_sp_listaralumnos
+
+// Comando que elimina todas las tablas : php artisan migrate:reset
+
+// Agrupar rutas con route resource : comando que nos va ayudar con las rutas
+php artisan r:l verifica todas las rutas que tenemos definido en el archivo
+"web.php" y me lo va mostrar en consola
+formato para traducir el nombre de la url (create:crear)
+dirigirnos a la carpeta App\Providers\AppServiceProvider.php 
+Para cambiar en el nombre principal de la url ejem(cursos a asignaturas) 
+->names('cursos') cambia la url pero no el nombre de las ruta
+- >parameters(['asignaturas' => 'curso']) indicar que las variables se va llamar al nombre que yo desee
+
+// Como general url's amigables : debe ser lo mas descriptivo posible
+
+// Agregar Navegabilidad a nuestro sitio web :
+
+// Como enviar email con Laravel : basado con servidores smtp config/mail.php
+para poder enviar un correo debemos que crear un mailabel : php artisan make:mail ContactosMailable
+(https://mailtrap.io/inboxes/1972366/messages/3131894529)
+
+//Kits de inicio:Laravel Breeze y Laravel Jestream (que cuenta con sistema de autenticacion:registrarse
+iniciarsesion,recuperarcontraseña entre muchas otras funcionalidades) : https://www.youtube.com/watch?v=v-R5FLGAB58&list=PLZ2ovOgdI-kWWS9aq8mfUDkJRfYib-SvF&index=30
+- php artisan breezen:install (breezen)
+- Jestream tiene 2 kits:(Livewire,Inertia)Tener conocimiento un poco mayor composer require laravel/jetstream
+se ejecuta con el servidor de vite: npm run dev para que cargue las plantillas
+
+//Como utilizar Boostrap con Laravel Jetstream  https://www.youtube.com/watch?v=Wt-OuBX6lEc&list=PLZ2ovOgdI-kWWS9aq8mfUDkJRfYib-SvF&index=32
+
+// Creacion de una Url en Php : php artisan serve
+
+// Laravel ahora usa Vite¿Que ocurrio con Webpack?
+
+-- Jestream:
+// Componentes blade(de clases y anonimos) se pasaria ciertos parametros al 
+componente para que modifique el texto , porque lo que interesa es que toda la 
+estructura y el diseño este ahi y que se modifique solo el contenido
+
+https://www.youtube.com/watch?v=u7FN-9vZfIA&list=PLZ2ovOgdI-kWWS9aq8mfUDkJRfYib-SvF&index=34
+
+
+
+
+
+--Aplicacion Web Crud1 con tablas relacionales apuntes:
+Levantar Servidor: php artisan serve 
+migraciones(Creacion de tablas): php artisan make:migration categorias, php artisan make:migration libros 
+migrar a la base de datos las tablas : php artisan migrate
+
+--Instalar la interfaz grafica que nos va dar lo que es el elemento
+de autenticacion composer require laravel/ui nos va permitir general
+lo que es el login y eso lo vamos integral lo que es Boostrap
+-- Integrarse a nuestro proyecto la autenticacion , querimos la interfaz
+grafica y que se anexen para que nosotros podramos correr instrucciones
+php artisan ui bootstrap --auth  que me va permitir crear todo lo que
+es elemento de autenticacion
+Arrancar servidor : npm run dev
+// Herramientas:
+composer require ibex/crud-generator --dev instalacion de un paqueta para crear 
+un crud de formar rapida
+php artisan vendor:publish --tag=crud Instruccion que nos permita correr ciertos comando para generar el crud
+php artisan make:crud categorias
+php artisan make:crud libros
+
+
+https://www.youtube.com/watch?v=EPEu8E0tJQ8
+
+
+https://laravel.com/docs/9.x/migrations
+//$ composer require laravelcollective/html

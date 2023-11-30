@@ -1,0 +1,150 @@
+*
+{
+    border:0;
+    margin:0;
+}
+/*Para incluir la familia Chalet*/
+@font-face {
+    font-family: "Chalet" ;
+    src: url("../FONTS/Chalet.eot");
+    src: url("../FONTS/Chalet.eot?#iefix") format("embedded-opentype"),
+         url("../FONTS/Chalet.woff") format("woff"),
+         url("../FONTS/Chalet.ttf") format("truetype"),
+         url("../FONTS/Chalet.svg#Chalet") format("svg");
+}
+a{color:#F60;text-decoration: none;}
+a:hover{color:#7BBF5D}
+body {
+    background-color: #fff;
+    color: #212121;
+    font-family: "Chalet",Helvetica,Verdana;
+    font-size: 16px;
+}
+nav,#principal{
+    box-sizing:border-box;
+    display: inline-block;
+    font-size: 1em;
+    margin:.25em;
+    text-align: left;
+    width:20%;
+    vertical-align:top;
+}
+ul{list-style: none;}
+#contenido{
+    margin: 0,auto;
+    text-align: center;}
+#principal{
+    width:75%
+}
+.cambio{
+    transition:all 2.5s ease-out;
+}
+
+/*form:*/
+.formulario{
+    display: none;
+}
+
+fieldset{
+    border: 1px solid #F60;
+    border-radius: .5em;
+    padding: 1em;
+}
+form div{
+    margin: .5em;
+}
+input[type="checkbox"],input[type="radio"],select{
+    background:#EEE;
+    cursor: pointer;
+}
+input[type="date"],input[type="email"],input[type="number"],input[type="text"]
+{
+    background:#EEE;
+    border-radius: .25em;
+    /*color:#F60;*/
+    font-size: 1em;
+    padding: .25em;
+}
+
+input[type="date"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="text"]:focus
+{
+    background:#66a712;
+}
+
+input[type="submit"]{
+    background: #FF9A55;
+    border-radius: 0 .25em;
+    color:#500;
+    font-family: "Chalet";
+    font-size: 1.5rem;
+
+}
+input[type="submit"]:hover{
+    background:#7BBF5D;
+    border-radius:.25em 0;
+    color:#000;
+    cursor:pointer
+}
+input[type="file"]{
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    width: 150px;
+}
+label{
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.adjuntar-archivo{
+    background:#EEE url(../IMG/boton-buscar.png) no-repeat 100% -3px;
+    border: thin solid #F60;
+    display:inline;
+    height:290px;
+    text-align: right;
+}
+.adjuntar-archivo:hover{
+    background:#C6ECF9 url(../IMG/boton-buscar2.png) no-repeat 100% -3px ;
+    cursor: pointer;
+}
+.mensajes{
+    background: yellow;
+    border-radius: 5em;
+    color:#000;
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 1em;
+    padding:.10rem;
+}
+
+input[type="email"]:disabled{
+    background:transparent;
+    color:#CCC;
+}
+
+table img{
+    max-width: 50%;
+}
+table{ 
+    border: 1em solid #F60;
+    border-radius: 1em;
+    cursor:default;
+    font-family: Helvetica;
+    font-size: .75em;
+    padding: .25rem;
+    width: 100%;
+}
+table td{ 
+    border: .1em solid #F60;
+    border-radius: .5em;
+    word-wrap: break-word;
+    text-align: center;
+}
+table tr{
+    background:powderblue;
+}
+table thead tr{ 
+    background:transparent;
+}
+table tr:nth-child(even){
+    background:darkgray;
+}

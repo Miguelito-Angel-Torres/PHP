@@ -1,0 +1,212 @@
+Recursos:
+La institución no posee los elementos disponibles para relizar la necesidad o llevar a cabo la
+implementacion del sistema web,por lo tanto,ocasiona un retraso en el cronograma de realizacion
+del proyecto.
+
+Economia:
+La institución no cuenta con la solvencia y la liquidez necesario,ya que no es notable en el mercado,por lo tanto,
+se limita a invertir con la mejoria de sus procesos,causando una restriccion de costos de los recursos. 
+
+Reuniones Presenciales:
+
+Las reuniones presenciales no esta autorizado en su totalidad en las instalaciones de la Institucion,por una prevencion 
+de contagios de COVID-19,teniendo en cuenta que se debe contar con las (3) dosis de vacunacion declarado por el Decreto Supremo N° 108-2022-PCM,por lo tanto,
+nos retrasa obtener la informacion imprescindible para la ejecucion de los procesos del sistema web. 
+
+
+
+  
+teniendo en cuenta que debemos contar con las (3) dosis de vacunacion declarado por el Decreto SU
+
+Por las medidas necesaria y la prevencion de contagios
+
+teniendo en cuenta uno de los requisitos necesarios:(3) dosis de vacunacion
+Por la prevencion de contagios 
+
+
+
+
+con la liquidez necesario 
+
+
+
+Detalles:
+Por la emergencia 
+
+
+
+recursos necesario para la implementacion del sistema
+
+
+
+
+
+
+
+
+
+
+
+
+
+Despues de realizar los diagramas,se justificara en formato Word la gestion de los requisitos
+para la solucion.
+
+Luego,se descargaria el Entorno de Desarrollo Visual Studio Code con la implementacion del lenguaje Php y el 
+framework de Django y se empezaria a estructurar la aplicacion web en base a los diagramas y requerimientos
+anteriormente mencionados.A su vez,se desempeñara con el patron de arquitectura MVC con el proposito de separar
+los componentes de procesos para que la aplicacion sea escalable,mantenible y facil de expandir.Asimismo,
+se ejecutara la creacion de procedimiento en la base de datos usando el servicio PostgreSQL para almacenar los
+registros de la aplicacion.
+
+Por consiguiente ,se realizaria las ejecuciones de los procedimiento del sistema web para evitar posibles errores y modificarlo a tiempo.
+
+En conclusion,se alojaria la pagina web en un hosting para guardar los archivos y que asi
+este visible en internet.
+
+
+
+para la implementacion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Por lo tanto,StarUML es una herramienta para el modelamiento de software basado en los estándares UML y MDA con
+la finalidad de crear uno o varios procesos de negocios.
+
+Se llevaria a cabo la estructuracion de las carpetas en base al modelo de negocio de la metodlogia RUP,
+enfocandonos en el proceso de la gestion de matriculas y cobranzas.La estructura del modelo del negocio será la siguiente: 
+
+
+sistema de tiempo real orientados a objetos
+julio luis medina pasaje
+
+
+EL objetivo es definir la Metodologia UML-MAST para la representación
+y análisis del comportamiento de tiempo real de sistemas que han sido diseñados utilizando el
+paradigma de orientación a objetos,segun Julio Luis Medina Pasaje indica que "StarUML" define para su propia descripción un
+subconjunto mínimo del lenguaje con el cual modelar y por tanto describir los conceptos que
+fundamentan el propio lenguaje.
+
+
+https://www.tesisenred.net/bitstream/handle/10803/10633/JMPtesis.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

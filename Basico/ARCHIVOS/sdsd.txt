@@ -1,0 +1,38 @@
+Posteriormente de finalizar el estudio del proceso en el área de matriculas y cobranzas,consideramos que se
+llevara acabo dos sistemas web para la utilizacion del estudiantes y administrativos.
+--Estudiantes:
+(acciones que tendria el sistema web estudiante)
+-El estudiante podrá realizar matriculas de los servicios que ofrece la institucion,
+-El estudiante podrá realizar consultas de dudas en el sistema web,porque tendra la opcion de un formulario de atencion al alumnos
+-El estudiante podrá visualizar y pagar el monto indicado en el cronograma de pago del sistema web.
+-El estudiante tendra informacion anticipada de los eventos cercanos que se realizara en la institucion.
+--Administrativos:
+(acciones que tendria el sistema web administrativo)
+-El administrativo tendra la opciones de matricular al estudiante que se acerque a las instalaciones de la institucion,
+-El administrativo podra realizar sus cobranzas mediante el sistema web.
+
+Para ello,vamos a utilizar el Visual Studio Code como Entorno de Desarrollo para la manipulacion del lenguaje de progrmacion PHP,
+exclusivamente para el desarrollo de los sistemas webs.La base de datos que tendra integrada los sistemas webs sera el MySQL.
+La Metodologia de Sofware que vamos a implementar es RUP.Y el patron de arquitectura que vamos a aplicar en el proyecto es MVC.
+
+Consideraciones operativas:
+
+
+Consideraciones ambientales:
+Si al administrador o estudiante le succede un problema de dificultad de recordar su contraseña para que no se realize el proceso de bloqueo de cuenta,entonces no habria ninguna dificultad en 
+desactivar el bloqueo de contraseña,ya que el sistema web cuenta con una base de datos integrado,donde se guarda automaticamente todos los cambios
+realizados,por lo tanto,tendria que comunicarse con el area de desarrollo para resolver el problema.
+
+
+
+
+
+
+
+  
+
+en el  de administrativo y area del estudiante
+
+
+donde el estudiante podra realizar matricula de los servicios que ofrece la institucion,
+podra realizar cobranzas mediante el sistema web,sujetara con un pago de linea para la realizacion de pagos con el fin pagar las cotas,
